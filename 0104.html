@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        let out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function findIndexOfValue(value, array) {
+        let result = -1;
+        for (let index = 0; index < array.length; ++index) {
+          if (array[index] === value) {
+            result = index;
+            break;
+          }
+        }
+
+        return result;
+      }
+
+      log(findIndexOfValue(3, []), -1);
+      log(findIndexOfValue(3, [1, 2, 4, 5]), -1);
+      log(findIndexOfValue(3, [1, 2, 4, 3, 5]), 3);
+      log(findIndexOfValue(3, [3, 2, 4, 3, 5]), 0);
+      log(findIndexOfValue(3, [2, 4, 1, 5, 3]), 4);
+      log(findIndexOfValue(2, [1, 2, 3]), 1);
+      log(findIndexOfValue(9, [1, 2, 3]), -1);
+    </script>
+  </body>
+</html>

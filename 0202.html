@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function pop(array) {
+        if (array.length === 0) {
+          return undefined;
+        } else {
+          var value = array[array.length - 1];
+          --array.length;
+          return value;
+        }
+      }
+
+      var count = [4, 3, 2, 1];
+      log(pop(count), 1);
+      log(count, [4, 3, 2]);
+      log(pop(count), 2);
+      log(count, [4, 3]);
+      log(pop(count), 3);
+      log(count, [4]);
+      log(pop(count), 4);
+      log(count, []);
+      log(pop(count), undefined);
+      log(count, []);
+      log(pop(count), undefined);
+      log(count, []);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function push(array, value) {
+        array[array.length] = value;
+        return array;
+      }
+
+      // initialize result array to []
+      // append elements of array1 to result array
+      // append elements of array2 to result array
+      // return result array
+      function append(array1, array2) {
+        for (var index = 0; index < array2.length; ++index) {
+          push(array1, array2[index]);
+        }
+      }
+
+      function concat(array1, array2) {
+        var result = [];
+        append(result, array1);
+        append(result, array2);
+        return result;
+      }
+
+      log(concat([1, 2, 3], [4, 5, 6]), [1, 2, 3, 4, 5, 6]);
+      log(concat([], [4, 5, 6]), [4, 5, 6]);
+      log(concat([1, 2, 3], []), [1, 2, 3]);
+      log(concat([], []), []);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      // result = ''
+      // foreach value in array
+      //   if not first value
+      //     result += delimiter
+      //   result += value as String
+      // return result
+      function join(array, delimiter) {
+        var result = '';
+        for (var index = 0; index < array.length; ++index) {
+          if (index > 0) {
+            result += delimiter;
+          }
+
+          result += String(array[index]);
+        }
+
+        return result;
+      }
+
+      log(join(['bri', 'tru', 'wha'], 'ck '), 'brick truck wha');
+      log(join([1, 2, 3], ' and '),           '1 and 2 and 3');
+      log(join([1, 2, 3], ''),                '123');
+      log(join([], 'x'),                      '');
+      log(join(['a'], 'x'),                   'a');
+      log(join(['a', 'b'], 'x'),              'axb');
+    </script>
+  </body>
+</html>

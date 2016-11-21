@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function lastInArray(array) {
+        return array[array.length - 1];
+      }
+
+      function output(evaluate, expected) {
+        let value = evaluate();
+        document.write('<h3>' + value + ' (' +
+                       (value === expected) + ')</h3>\n');
+      }
+
+      output(function() { return lastInArray([]) }, undefined);
+      output(function() { return lastInArray([3]) }, 3);
+      output(function() { return lastInArray([3, 6, 9]) }, 9);
+      output(function() { return lastInArray([1, 2, 3, 4]) }, 4);
+    </script>
+  </body>
+</html>

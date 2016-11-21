@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function push(array, value) {
+        array[array.length] = value;
+        return array;
+      }
+
+      var count = [];
+      log(push(count, 4), [4]);
+      log(count, [4]);
+      log(push(count, 3), [4, 3]);
+      log(count, [4, 3]);
+      log(push(count, 2), [4, 3, 2]);
+      log(count, [4, 3, 2]);
+      log(push(count, 1), [4, 3, 2, 1]);
+      log(count, [4, 3, 2, 1]);
+    </script>
+  </body>
+</html>

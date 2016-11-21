@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        let out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function concatenateArray(array) {
+        let result = '';
+        for (let index = 0; index < array.length; ++index) {
+          result += String(array[index]);
+        }
+
+        return result;
+      }
+
+      log(concatenateArray([]), '');
+      log(concatenateArray(['*']), '*');
+      log(concatenateArray(['a', 'b', 'c']), 'abc');
+      log(concatenateArray(['ab', 'c']), 'abc');
+      log(concatenateArray(['ab', '', 'c']), 'abc');
+      log(concatenateArray([4, 55, 6]), '4556');
+      log(concatenateArray([4, '55', true, 6]), '455true6');
+    </script>
+  </body>
+</html>

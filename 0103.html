@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function reverseArray(array) {
+        let newArray = [];
+        for (let index = array.length - 1; index >= 0; --index) {
+          newArray.push(array[index]);
+        }
+
+        return newArray;
+      }
+
+      log(reverseArray([]), []);
+      log(reverseArray([3]), [3]);
+      log(reverseArray([3, 2]), [2, 3]);
+      log(reverseArray([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1]);
+    </script>
+  </body>
+</html>
