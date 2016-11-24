@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function firstElementOf(array) {
+        return array[0];
+      }
+
+      function lastElementOf(array) {
+        return array[array.length - 1];
+      }
+
+      function endsOf(firstArray, secondArray) {
+        return [firstElementOf(firstArray), lastElementOf(secondArray)];
+      }
+
+      log(endsOf([4, 8, 15], [16, 23, 42]), [4, 42]);
+      log(endsOf([15], [16]), [15, 16]);
+      log(endsOf([4, 8, 15], []), [4, undefined]);
+      log(endsOf([], [16, 23, 42]), [undefined, 42]);
+      log(endsOf([], []), [undefined, undefined]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function lastNOf(array, length) {
+        if (array.length < length) {
+          length = array.length;
+        }
+
+        return array.slice(array.length - length);
+      }
+
+      var digits = [4, 8, 15, 16, 23, 42];
+      log(lastNOf(digits, 3), [16, 23, 42]);
+      log(lastNOf(digits, 1), [42]);
+      log(lastNOf(digits, 0), []);
+      log(lastNOf(digits, 5), [8, 15, 16, 23, 42]);
+      log(lastNOf(digits, 6), [4, 8, 15, 16, 23, 42]);
+      log(lastNOf(digits, 10), [4, 8, 15, 16, 23, 42]);
+    </script>
+  </body>
+</html>

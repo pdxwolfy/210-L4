@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function nthElementOf(array, index) {
+        return array[index];
+      }
+
+      log(nthElementOf(['U', 'S', 'A'], 0), 'U');
+      log(nthElementOf(['U', 'S', 'A'], 1), 'S');
+      log(nthElementOf(['U', 'S', 'A'], 2), 'A');
+      log(nthElementOf(['U', 'S', 'A'], 3), undefined);
+      log(nthElementOf(['U', 'S', 'A'], -2), undefined);
+      log(nthElementOf(['A'], 0), 'A');
+      log(nthElementOf(['A'], 2), undefined);
+      log(nthElementOf(['A'], -2), undefined);
+      log(nthElementOf([], 0), undefined);
+
+      var digits = [4, 8, 15, 16, 23, 42];
+      log(nthElementOf(digits, 3), 16); // Returns 16
+      log(nthElementOf(digits, 8), undefined); // What would this return?
+      log(nthElementOf(digits, -1), undefined); // What would this return?
+      digits[-6] = 7
+      digits[-100] = 3
+      log(nthElementOf(digits, -6), 7); 
+      log(nthElementOf(digits, -100), 3);
+      log(nthElementOf(digits, -50), undefined);
+    </script>
+  </body>
+</html>

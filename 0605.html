@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      function push(array, value) {
+        array[array.length] = value;
+        return array;
+      }
+
+      function slice(array, start, end) {
+        var result = [];
+        for (var index = start; index < end; ++index) {
+          if (index >= array.length) {
+            break;
+          }
+
+          push(result, array[index]);
+        }
+
+        return result;
+      }
+
+      function firstNOf(array, length) {
+        return slice(array, 0, length);
+      }
+
+      var digits = [4, 8, 15, 16, 23, 42];
+      log(firstNOf(digits, 3), [4, 8, 15]);
+      log(firstNOf(digits, 1), [4]);
+      log(firstNOf(digits, 0), []);
+      log(firstNOf(digits, 5), [4, 8, 15, 16, 23]);
+      log(firstNOf(digits, 6), [4, 8, 15, 16, 23, 42]);
+      log(firstNOf(digits, 10), [4, 8, 15, 16, 23, 42]);
+    </script>
+  </body>
+</html>
