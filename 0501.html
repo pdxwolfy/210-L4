@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+      "use strict";
+
+      function log(value, expected) {
+        var out = document.getElementById('console');
+        out.innerHTML += '<br>' +
+                         'value    = [' + String(value) + ']<br>' +
+                         'expected = [' + String(expected) + ']<br>';
+      }
+
+      // if first array length and second array length are the same
+      //   for each element pair in first and second arrays
+      //     if first element value is not equal to second element value
+      //       return false
+      //   return true
+      // return false
+      function arraysEqual(array1, array2) {
+        if (array1.length !== array2.length) {
+          return false;
+        }
+
+        for (var index = 0; index < array1.length; ++index) {
+          if (array1[index] !== array2[index]) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      log(arraysEqual([1], [1]),                            true);
+      log(arraysEqual([1], [2]),                            false);
+      log(arraysEqual([1, 2], [1, 2]),                      true);
+      log(arraysEqual([1, 2], [1, 2, 3]),                   false);
+      log(arraysEqual([2, 3], [1, 2, 3]),                   false);
+      log(arraysEqual([1, 3, 2], [1, 2, 3]),                false);
+      log(arraysEqual([1, 'hi', true], [1, 'hi', true]),    true);
+      log(arraysEqual([1, 'hi', true], [1, 'hi', false]),   false);
+      log(arraysEqual([1, 'hi', true], [1, 'hello', true]), false);
+      log(arraysEqual([1, 'hi', true], [2, 'hi', true]),    false);
+    </script>
+  </body>
+</html>
